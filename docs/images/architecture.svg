@@ -1,256 +1,237 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 720" width="100%" height="100%" style="background:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 700" width="100%" height="100%"
+     style="background:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
   <defs>
-    <!-- Shadows & Filters -->
-    <filter id="card-shadow" x="-8%" y="-8%" width="116%" height="116%" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.08"/>
+    <marker id="a-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1L10 5L0 9z" fill="#2563EB"/>
+    </marker>
+    <marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1L10 5L0 9z" fill="#D97706"/>
+    </marker>
+    <marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1L10 5L0 9z" fill="#059669"/>
+    </marker>
+    <marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1L10 5L0 9z" fill="#64748B"/>
+    </marker>
+    <marker id="a-indigo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1L10 5L0 9z" fill="#4F46E5"/>
+    </marker>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0F172A" flood-opacity=".08"/>
     </filter>
-    <filter id="ec2-shadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#ED7100" flood-opacity="0.12"/>
-    </filter>
-
-    <!-- Markers -->
-    <marker id="arrow-aws" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ED7100" />
-    </marker>
-    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563EB" />
-    </marker>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#059669" />
-    </marker>
-    <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748B" />
-    </marker>
-    <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#7C3AED" />
-    </marker>
   </defs>
 
-  <!-- Title & Subtitle Header -->
-  <g transform="translate(40, 35)">
-    <text x="0" y="0" font-size="22" font-weight="700" fill="#0F172A">Архитектура развёртывания приложения TimeCapsule на Amazon EC2</text>
-    <text x="0" y="22" font-size="13" font-weight="500" fill="#64748B">Лабораторная работа 02 · Студент: Zui Artiom · Специальность: Informatică aplicată · Продвинутый уровень</text>
-  </g>
+  <!-- ===== TITLE ===== -->
+  <text x="30" y="28" font-size="20" font-weight="800" fill="#0F172A">Архитектура развёртывания приложения TimeCapsule на Amazon EC2</text>
+  <text x="30" y="48" font-size="12" font-weight="500" fill="#64748B">Лабораторная работа 02 · Студент: Zui Artiom · Специальность: Informatică aplicată · Продвинутый уровень</text>
 
-  <!-- ==================== EXTERNAL CLIENTS & DEV ZONE ==================== -->
-  
-  <!-- 1. Users / Browsers -->
-  <g transform="translate(40, 110)">
-    <rect width="180" height="120" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#card-shadow)"/>
-    <!-- Icon Circle -->
-    <circle cx="36" cy="38" r="18" fill="#DBEAFE"/>
-    <text x="36" y="44" font-size="18" text-anchor="middle" fill="#1D4ED8">🌐</text>
-    <text x="64" y="36" font-size="14" font-weight="700" fill="#0F172A">Пользователи</text>
-    <text x="64" y="52" font-size="11" fill="#64748B">Web Browsers</text>
-    <line x1="16" y1="72" x2="164" y2="72" stroke="#E2E8F0" stroke-width="1"/>
-    <text x="20" y="92" font-size="11" fill="#334155">HTTP :80 / HTML, JSON</text>
-    <text x="20" y="107" font-size="10" fill="#64748B">Публичный доступ в интернет</text>
-  </g>
+  <!-- ===== EXTERNAL ACTORS (left column) ===== -->
 
-  <!-- 2. Developer Laptop (macOS) -->
-  <g transform="translate(40, 260)">
-    <rect width="180" height="145" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#card-shadow)"/>
-    <circle cx="36" cy="38" r="18" fill="#FEF3C7"/>
-    <text x="36" y="44" font-size="18" text-anchor="middle" fill="#B45309">💻</text>
-    <text x="64" y="36" font-size="14" font-weight="700" fill="#0F172A">Разработчик</text>
-    <text x="64" y="52" font-size="11" fill="#64748B">MacBook Pro (macOS)</text>
-    <line x1="16" y1="72" x2="164" y2="72" stroke="#E2E8F0" stroke-width="1"/>
-    <text x="20" y="90" font-size="11" font-weight="600" fill="#0F172A">SSH :22</text>
-    <text x="20" y="105" font-size="10" fill="#64748B">ED25519-key: hakonn5-keypair</text>
-    <text x="20" y="122" font-size="11" font-weight="600" fill="#0F172A">Git Push HTTPS</text>
-    <text x="20" y="136" font-size="10" fill="#64748B">Коммиты в ветку main</text>
-  </g>
+  <!-- Users Box (x=30, y=80, w=180, h=100) -->
+  <rect x="30" y="80" width="180" height="100" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="62" cy="106" r="15" fill="#DBEAFE"/>
+  <text x="62" y="111" font-size="14" text-anchor="middle" fill="#1D4ED8">🌐</text>
+  <text x="82" y="103" font-size="12" font-weight="700" fill="#0F172A">Пользователи</text>
+  <text x="82" y="117" font-size="9" fill="#64748B">Web Browsers</text>
+  <line x1="42" y1="130" x2="198" y2="130" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="46" y="148" font-size="9" font-weight="600" fill="#2563EB">HTTP :80 / HTML, JSON</text>
+  <text x="46" y="163" font-size="8" fill="#64748B">Публичный доступ в интернет</text>
 
-  <!-- 3. GitHub Organization -->
-  <g transform="translate(40, 435)">
-    <rect width="180" height="150" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#card-shadow)"/>
-    <circle cx="36" cy="38" r="18" fill="#F1F5F9"/>
-    <text x="36" y="44" font-size="18" text-anchor="middle" fill="#0F172A">🐙</text>
-    <text x="64" y="36" font-size="14" font-weight="700" fill="#0F172A">GitHub</text>
-    <text x="64" y="52" font-size="11" fill="#64748B">hakonn5-cloud</text>
-    <line x1="16" y1="72" x2="164" y2="72" stroke="#E2E8F0" stroke-width="1"/>
-    <text x="20" y="90" font-size="11" font-weight="600" fill="#0F172A">timecapsule (Public)</text>
-    <text x="20" y="105" font-size="10" fill="#64748B">Единственный источник кода</text>
-    <rect x="18" y="115" width="144" height="22" rx="4" fill="#E2E8F0"/>
-    <text x="24" y="130" font-size="10" font-family="monospace" fill="#0F172A">git clone / git pull</text>
-  </g>
+  <!-- Developer Box (x=30, y=205, w=180, h=120) -->
+  <rect x="30" y="205" width="180" height="120" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="62" cy="231" r="15" fill="#FEF3C7"/>
+  <text x="62" y="236" font-size="14" text-anchor="middle" fill="#B45309">💻</text>
+  <text x="82" y="228" font-size="12" font-weight="700" fill="#0F172A">Разработчик</text>
+  <text x="82" y="242" font-size="9" fill="#64748B">MacBook Pro (macOS)</text>
+  <line x1="42" y1="254" x2="198" y2="254" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="46" y="270" font-size="9" font-weight="600" fill="#0F172A">SSH :22</text>
+  <text x="46" y="284" font-size="8" fill="#64748B">ED25519-key: hakonn5-keypair</text>
+  <text x="46" y="300" font-size="9" font-weight="600" fill="#0F172A">Git Push HTTPS</text>
+  <text x="46" y="314" font-size="8" fill="#64748B">Коммиты в ветку main</text>
 
-  <!-- ==================== AWS CLOUD BOUNDARY ==================== -->
-  <g transform="translate(260, 95)">
-    <!-- Outer AWS Cloud Box -->
-    <rect width="880" height="585" rx="14" fill="#FFFFFF" stroke="#FF9900" stroke-width="2.5" stroke-dasharray="8 4"/>
-    <rect x="16" y="-12" width="130" height="24" rx="5" fill="#FF9900"/>
-    <text x="81" y="4" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">☁️ AWS CLOUD</text>
+  <!-- GitHub Box (x=30, y=350, w=180, h=110) -->
+  <rect x="30" y="350" width="180" height="110" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="62" cy="376" r="15" fill="#F1F5F9"/>
+  <text x="62" y="381" font-size="14" text-anchor="middle" fill="#0F172A">🐙</text>
+  <text x="82" y="373" font-size="12" font-weight="700" fill="#0F172A">GitHub</text>
+  <text x="82" y="387" font-size="9" fill="#64748B">hakonn5-cloud</text>
+  <line x1="42" y1="399" x2="198" y2="399" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="46" y="415" font-size="9" font-weight="600" fill="#0F172A">timecapsule (Public)</text>
+  <text x="46" y="430" font-size="8" fill="#64748B">Единственный источник кода</text>
+  <rect x="46" y="438" width="130" height="16" rx="3" fill="#E2E8F0"/>
+  <text x="52" y="450" font-size="8" font-family="monospace" fill="#0F172A">git clone / git pull</text>
 
-    <!-- Region Container -->
-    <g transform="translate(20, 25)">
-      <rect width="840" height="540" rx="12" fill="#F8FAFC" stroke="#0284C7" stroke-width="1.5"/>
-      <rect x="16" y="-11" width="220" height="22" rx="4" fill="#0284C7"/>
-      <text x="126" y="4" font-size="11" font-weight="700" text-anchor="middle" fill="#FFFFFF">Region: eu-central-1 (Frankfurt)</text>
+  <!-- ===== AWS CLOUD (x=240, y=68, w=880, h=620) ===== -->
+  <rect x="240" y="68" width="880" height="620" rx="12" fill="none" stroke="#FF9900" stroke-width="2.5" stroke-dasharray="8 4"/>
+  <rect x="260" y="56" width="120" height="24" rx="5" fill="#FF9900"/>
+  <text x="320" y="73" font-size="11" font-weight="800" text-anchor="middle" fill="#fff">☁️ AWS CLOUD</text>
 
-      <!-- VPC Container -->
-      <g transform="translate(20, 25)">
-        <rect width="800" height="495" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
-        <rect x="16" y="-11" width="230" height="22" rx="4" fill="#7C3AED"/>
-        <text x="131" y="4" font-size="11" font-weight="700" text-anchor="middle" fill="#FFFFFF">Default VPC (172.31.0.0/16)</text>
+  <!-- Region (x=260, y=88, w=845, h=585) -->
+  <rect x="260" y="88" width="845" height="585" rx="10" fill="#F8FAFC" stroke="#0284C7" stroke-width="1.5"/>
+  <rect x="278" y="78" width="220" height="22" rx="4" fill="#0284C7"/>
+  <text x="388" y="93" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">Region: eu-central-1 (Frankfurt)</text>
 
-        <!-- Availability Zone Container -->
-        <g transform="translate(20, 25)">
-          <rect width="760" height="450" rx="8" fill="#FBFBFE" stroke="#6366F1" stroke-width="1" stroke-dasharray="5 3"/>
-          <text x="16" y="20" font-size="12" font-weight="700" fill="#4338CA">Availability Zone: eu-central-1b</text>
-          <text x="210" y="20" font-size="11" fill="#64748B">| Public Subnet: 172.31.32.0/20</text>
+  <!-- VPC (x=278, y=112, w=810, h=548) -->
+  <rect x="278" y="112" width="810" height="548" rx="8" fill="#fff" stroke="#7C3AED" stroke-width="1.5"/>
+  <rect x="296" y="103" width="210" height="20" rx="4" fill="#7C3AED"/>
+  <text x="401" y="117" font-size="10" font-weight="700" text-anchor="middle" fill="#fff">Default VPC (172.31.0.0/16)</text>
 
-          <!-- Security Group Box -->
-          <g transform="translate(20, 35)">
-            <rect width="720" height="395" rx="8" fill="#FFFDF8" stroke="#F59E0B" stroke-width="1.5"/>
-            <rect x="16" y="-10" width="240" height="20" rx="4" fill="#F59E0B"/>
-            <text x="136" y="4" font-size="11" font-weight="700" text-anchor="middle" fill="#FFFFFF">Security Group: webserver-sg</text>
+  <!-- AZ (x=296, y=134, w=776, h=512) -->
+  <rect x="296" y="134" width="776" height="512" rx="6" fill="#FBFBFE" stroke="#6366F1" stroke-width="1" stroke-dasharray="5 3"/>
+  <text x="316" y="154" font-size="11" font-weight="700" fill="#4338CA">Availability Zone: eu-central-1b</text>
+  <text x="500" y="154" font-size="10" fill="#64748B">| Public Subnet: 172.31.32.0/20</text>
 
-            <!-- SG Rules Bar -->
-            <g transform="translate(16, 18)">
-              <rect width="688" height="32" rx="4" fill="#FEF3C7" stroke="#FDE68A"/>
-              <text x="12" y="20" font-size="11" font-weight="600" fill="#92400E">🛡️ Inbound Rules:</text>
-              <text x="130" y="20" font-size="11" fill="#78350F">TCP 80 (HTTP) $\to$ 0.0.0.0/0 (Anywhere)</text>
-              <text x="390" y="20" font-size="11" fill="#78350F">|</text>
-              <text x="405" y="20" font-size="11" fill="#78350F">TCP 22 (SSH) $\to$ My IP (Restricted)</text>
-            </g>
+  <!-- Security Group (x=316, y=165, w=740, h=466) -->
+  <rect x="316" y="165" width="740" height="466" rx="6" fill="#FFFDF8" stroke="#F59E0B" stroke-width="1.5"/>
+  <rect x="334" y="157" width="220" height="18" rx="3" fill="#F59E0B"/>
+  <text x="444" y="170" font-size="10" font-weight="700" text-anchor="middle" fill="#fff">Security Group: webserver-sg</text>
 
-            <!-- EC2 Instance Box -->
-            <g transform="translate(16, 62)">
-              <rect width="688" height="315" rx="8" fill="#FFFFFF" stroke="#ED7100" stroke-width="2" filter="url(#ec2-shadow)"/>
-              
-              <!-- EC2 Header -->
-              <rect x="0" y="0" width="688" height="42" rx="8" fill="#ED7100"/>
-              <!-- AWS Compute Logo / Icon -->
-              <text x="20" y="27" font-size="18" fill="#FFFFFF">🖥️</text>
-              <text x="48" y="26" font-size="14" font-weight="700" fill="#FFFFFF">EC2 Instance: webserver (i-02d049607342c0e95)</text>
-              <rect x="520" y="10" width="70" height="22" rx="4" fill="#C2410C"/>
-              <text x="555" y="25" font-size="11" font-weight="600" text-anchor="middle" fill="#FFFFFF">t3.micro</text>
-              <rect x="600" y="10" width="75" height="22" rx="4" fill="#15803D"/>
-              <text x="637" y="25" font-size="11" font-weight="600" text-anchor="middle" fill="#FFFFFF">Running</text>
+  <!-- SG Rules Bar (x=334, y=182, w=706, h=28) -->
+  <rect x="334" y="182" width="706" height="28" rx="4" fill="#FEF3C7" stroke="#FDE68A" stroke-width="1"/>
+  <text x="346" y="200" font-size="10" font-weight="600" fill="#92400E">🛡️ Inbound Rules:</text>
+  <text x="462" y="200" font-size="10" fill="#78350F">TCP 80 (HTTP) → 0.0.0.0/0 (Anywhere)</text>
+  <text x="710" y="200" font-size="10" fill="#78350F">|</text>
+  <text x="724" y="200" font-size="10" fill="#78350F">TCP 22 (SSH) → My IP (Restricted)</text>
 
-              <!-- Sub-header metadata -->
-              <g transform="translate(20, 56)">
-                <text x="0" y="0" font-size="11" font-weight="600" fill="#475569">OS:</text>
-                <text x="26" y="0" font-size="11" fill="#0F172A">Amazon Linux 2023</text>
-                <text x="160" y="0" font-size="11" font-weight="600" fill="#475569">Public IP:</text>
-                <text x="220" y="0" font-size="11" font-family="monospace" font-weight="700" fill="#0284C7">3.75.221.81</text>
-                <text x="330" y="0" font-size="11" font-weight="600" fill="#475569">Private IP:</text>
-                <text x="395" y="0" font-size="11" font-family="monospace" fill="#0F172A">172.31.36.69</text>
-                <text x="500" y="0" font-size="11" font-weight="600" fill="#475569">Disk:</text>
-                <text x="535" y="0" font-size="11" fill="#0F172A">EBS gp3 (8 GiB)</text>
-              </g>
+  <!-- ===== EC2 INSTANCE (x=334, y=220, w=706, h=396) ===== -->
+  <rect x="334" y="220" width="706" height="396" rx="6" fill="#fff" stroke="#ED7100" stroke-width="2" filter="url(#sh)"/>
 
-              <line x1="20" y1="68" x2="668" y2="68" stroke="#E2E8F0" stroke-width="1"/>
+  <!-- EC2 Header Bar -->
+  <rect x="334" y="220" width="706" height="38" rx="6" fill="#ED7100"/>
+  <text x="354" y="244" font-size="16" fill="#fff">🖥️</text>
+  <text x="380" y="244" font-size="13" font-weight="700" fill="#fff">EC2 Instance: webserver (i-02d049607342c0e95)</text>
+  <rect x="854" y="228" width="64" height="20" rx="4" fill="#C2410C"/>
+  <text x="886" y="242" font-size="10" font-weight="600" text-anchor="middle" fill="#fff">t3.micro</text>
+  <rect x="926" y="228" width="64" height="20" rx="4" fill="#15803D"/>
+  <text x="958" y="242" font-size="10" font-weight="600" text-anchor="middle" fill="#fff">Running</text>
 
-              <!-- SOFTWARE TIERS INSIDE EC2 (Nginx -> PHP-FPM -> Postgres) -->
-              
-              <!-- Tier 1: Nginx -->
-              <g transform="translate(20, 80)">
-                <rect width="180" height="215" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
-                <rect x="0" y="0" width="180" height="30" rx="6" fill="#16A34A"/>
-                <text x="90" y="20" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">nginx (Web Server)</text>
-                
-                <g transform="translate(12, 45)">
-                  <text x="0" y="0" font-size="11" font-weight="700" fill="#166534">Port: 80 (TCP)</text>
-                  <text x="0" y="16" font-size="10" fill="#14532D">Root: /var/www/timecapsule/public</text>
-                  
-                  <rect x="0" y="30" width="156" height="42" rx="4" fill="#DCFCE7" stroke="#BBF7D0"/>
-                  <text x="8" y="46" font-size="10" font-weight="600" fill="#166534">Static Content:</text>
-                  <text x="8" y="60" font-size="9" fill="#14532D">CSS, JS, flatpickr vendor</text>
+  <!-- EC2 Metadata Row -->
+  <text x="354" y="275" font-size="10" font-weight="600" fill="#475569">OS:</text>
+  <text x="378" y="275" font-size="10" fill="#0F172A">Amazon Linux 2023</text>
+  <text x="510" y="275" font-size="10" font-weight="600" fill="#475569">Public IP:</text>
+  <text x="574" y="275" font-size="10" font-family="monospace" font-weight="700" fill="#0284C7">3.75.221.81</text>
+  <text x="680" y="275" font-size="10" font-weight="600" fill="#475569">Private IP:</text>
+  <text x="745" y="275" font-size="10" font-family="monospace" fill="#0F172A">172.31.36.69</text>
+  <text x="855" y="275" font-size="10" font-weight="600" fill="#475569">Disk:</text>
+  <text x="886" y="275" font-size="10" fill="#0F172A">EBS gp3 (8 GiB)</text>
+  <line x1="354" y1="284" x2="1020" y2="284" stroke="#E2E8F0" stroke-width="1"/>
 
-                  <rect x="0" y="82" width="156" height="74" rx="4" fill="#DCFCE7" stroke="#BBF7D0"/>
-                  <text x="8" y="98" font-size="10" font-weight="600" fill="#166534">FastCGI Pass:</text>
-                  <text x="8" y="112" font-size="9" fill="#14532D">try_files $uri /index.php</text>
-                  <text x="8" y="126" font-size="9" fill="#14532D">to Unix Socket</text>
-                  <text x="8" y="142" font-size="9" font-family="monospace" fill="#166534">/run/php-fpm/www.sock</text>
-                </g>
-              </g>
+  <!-- ===== THREE SOFTWARE TIERS ===== -->
 
-              <!-- Connection Arrow: Nginx -> PHP-FPM -->
-              <g transform="translate(205, 175)">
-                <line x1="0" y1="0" x2="30" y2="0" stroke="#16A34A" stroke-width="2.5" marker-end="url(#arrow-green)"/>
-                <text x="15" y="-6" font-size="9" text-anchor="middle" font-weight="600" fill="#166534">FastCGI</text>
-              </g>
+  <!-- Tier 1: Nginx (x=354, y=298, w=210, h=300) -->
+  <rect x="354" y="298" width="210" height="300" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+  <rect x="354" y="298" width="210" height="28" rx="6" fill="#16A34A"/>
+  <text x="459" y="316" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">nginx (Web Server)</text>
 
-              <!-- Tier 2: PHP-FPM -->
-              <g transform="translate(245, 80)">
-                <rect width="200" height="215" rx="6" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
-                <rect x="0" y="0" width="200" height="30" rx="6" fill="#4F46E5"/>
-                <text x="100" y="20" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">PHP-FPM (App Runtime)</text>
-                
-                <g transform="translate(12, 45)">
-                  <text x="0" y="0" font-size="11" font-weight="700" fill="#3730A3">PHP 8.4 Functional</text>
-                  <text x="0" y="16" font-size="10" fill="#312E81">User: apache | OPcache</text>
-                  
-                  <rect x="0" y="28" width="176" height="58" rx="4" fill="#E0E7FF" stroke="#C7D2FE"/>
-                  <text x="8" y="44" font-size="10" font-weight="600" fill="#3730A3">Application Logic:</text>
-                  <text x="8" y="58" font-size="9" fill="#312E81">index.php (Front Controller)</text>
-                  <text x="8" y="72" font-size="9" fill="#312E81">src/, views/, vendor/ (Composer)</text>
+  <text x="370" y="346" font-size="10" font-weight="700" fill="#166534">Port: 80 (TCP)</text>
+  <text x="370" y="362" font-size="9" fill="#14532D">Root: /var/www/timecapsule/public</text>
 
-                  <rect x="0" y="94" width="176" height="64" rx="4" fill="#E0E7FF" stroke="#C7D2FE"/>
-                  <text x="8" y="110" font-size="10" font-weight="600" fill="#3730A3">Config &amp; Storage:</text>
-                  <text x="8" y="124" font-size="9" fill="#312E81">.env (chmod 640 apache)</text>
-                  <text x="8" y="138" font-size="9" fill="#312E81">storage/uploads (chown apache)</text>
-                  <text x="8" y="150" font-size="9" fill="#312E81">storage/sessions</text>
-                </g>
-              </g>
+  <!-- Static Content sub-box -->
+  <rect x="370" y="374" width="180" height="42" rx="4" fill="#DCFCE7" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="378" y="392" font-size="9" font-weight="600" fill="#166534">Static Content:</text>
+  <text x="378" y="406" font-size="8" fill="#14532D">CSS, JS, flatpickr vendor</text>
 
-              <!-- Connection Arrow: PHP-FPM -> PostgreSQL -->
-              <g transform="translate(450, 175)">
-                <line x1="0" y1="0" x2="30" y2="0" stroke="#4F46E5" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
-                <text x="15" y="-6" font-size="9" text-anchor="middle" font-weight="600" fill="#3730A3">PDO</text>
-              </g>
+  <!-- FastCGI sub-box -->
+  <rect x="370" y="426" width="180" height="76" rx="4" fill="#DCFCE7" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="378" y="444" font-size="9" font-weight="600" fill="#166534">FastCGI Pass:</text>
+  <text x="378" y="460" font-size="8" fill="#14532D">try_files $uri /index.php</text>
+  <text x="378" y="474" font-size="8" fill="#14532D">to Unix Socket</text>
+  <text x="378" y="490" font-size="8" font-family="monospace" fill="#166534">/run/php-fpm/www.sock</text>
 
-              <!-- Tier 3: PostgreSQL -->
-              <g transform="translate(490, 80)">
-                <rect width="180" height="215" rx="6" fill="#FDF2F8" stroke="#DB2777" stroke-width="1.5"/>
-                <rect x="0" y="0" width="180" height="30" rx="6" fill="#DB2777"/>
-                <text x="90" y="20" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">PostgreSQL 16 (Database)</text>
-                
-                <g transform="translate(12, 45)">
-                  <text x="0" y="0" font-size="11" font-weight="700" fill="#9D174D">127.0.0.1:5432</text>
-                  <text x="0" y="16" font-size="10" fill="#831843">Localhost only (no public port)</text>
+  <!-- Tier 1 → Tier 2 Arrow -->
+  <line x1="564" y1="440" x2="594" y2="440" stroke="#16A34A" stroke-width="2.5" marker-end="url(#a-green)"/>
+  <text x="579" y="432" font-size="8" text-anchor="middle" font-weight="600" fill="#166534">FastCGI</text>
 
-                  <rect x="0" y="30" width="156" height="52" rx="4" fill="#FCE7F3" stroke="#FBCFE8"/>
-                  <text x="8" y="46" font-size="10" font-weight="600" fill="#9D174D">Database &amp; User:</text>
-                  <text x="8" y="60" font-size="9" fill="#831843">DB: timecapsule</text>
-                  <text x="8" y="74" font-size="9" fill="#831843">User: timecapsule</text>
+  <!-- Tier 2: PHP-FPM (x=600, y=298, w=220, h=300) -->
+  <rect x="600" y="298" width="220" height="300" rx="6" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+  <rect x="600" y="298" width="220" height="28" rx="6" fill="#4F46E5"/>
+  <text x="710" y="316" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">PHP-FPM (App Runtime)</text>
 
-                  <rect x="0" y="92" width="156" height="66" rx="4" fill="#FCE7F3" stroke="#FBCFE8"/>
-                  <text x="8" y="108" font-size="10" font-weight="600" fill="#9D174D">Auth &amp; Schema:</text>
-                  <text x="8" y="122" font-size="9" fill="#831843">scram-sha-256 (pg_hba.conf)</text>
-                  <text x="8" y="136" font-size="9" fill="#831843">users, capsules, uploads</text>
-                  <text x="8" y="150" font-size="9" fill="#831843">notifications tables</text>
-                </g>
-              </g>
+  <text x="616" y="346" font-size="10" font-weight="700" fill="#3730A3">PHP 8.4 Functional</text>
+  <text x="616" y="362" font-size="9" fill="#312E81">User: apache | OPcache</text>
 
-            </g> <!-- end EC2 Box -->
-          </g> <!-- end SG -->
-        </g> <!-- end AZ -->
-      </g> <!-- end VPC -->
-    </g> <!-- end Region -->
-  </g> <!-- end AWS Cloud -->
+  <!-- Application Logic sub-box -->
+  <rect x="616" y="374" width="190" height="58" rx="4" fill="#E0E7FF" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="624" y="392" font-size="9" font-weight="600" fill="#3730A3">Application Logic:</text>
+  <text x="624" y="406" font-size="8" fill="#312E81">index.php (Front Controller)</text>
+  <text x="624" y="420" font-size="8" fill="#312E81">src/, views/, vendor/ (Composer)</text>
 
-  <!-- ==================== FLOW CONNECTIONS & LABELS ==================== -->
-  
-  <!-- Flow 1: Users -> EC2 Nginx (HTTP :80) -->
-  <path d="M 220 170 C 240 170, 260 270, 310 270" fill="none" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
-  <rect x="228" y="195" width="70" height="20" rx="3" fill="#EFF6FF" stroke="#BFDBFE"/>
-  <text x="263" y="209" font-size="9.5" font-weight="700" text-anchor="middle" fill="#1D4ED8">HTTP :80</text>
+  <!-- Config & Storage sub-box -->
+  <rect x="616" y="442" width="190" height="64" rx="4" fill="#E0E7FF" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="624" y="460" font-size="9" font-weight="600" fill="#3730A3">Config &amp; Storage:</text>
+  <text x="624" y="474" font-size="8" fill="#312E81">.env (chmod 640 apache)</text>
+  <text x="624" y="488" font-size="8" fill="#312E81">storage/uploads (chown apache)</text>
+  <text x="624" y="502" font-size="8" fill="#312E81">storage/sessions</text>
 
-  <!-- Flow 2: Developer -> EC2 (SSH :22) -->
-  <path d="M 220 330 C 245 330, 265 315, 310 315" fill="none" stroke="#D97706" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrow-aws)"/>
-  <rect x="228" y="325" width="70" height="20" rx="3" fill="#FEF3C7" stroke="#FDE68A"/>
-  <text x="263" y="339" font-size="9.5" font-weight="700" text-anchor="middle" fill="#B45309">SSH :22</text>
+  <!-- Tier 2 → Tier 3 Arrow -->
+  <line x1="820" y1="440" x2="850" y2="440" stroke="#4F46E5" stroke-width="2.5" marker-end="url(#a-indigo)"/>
+  <text x="835" y="432" font-size="8" text-anchor="middle" font-weight="600" fill="#3730A3">PDO</text>
 
-  <!-- Flow 3: Developer -> GitHub (Git Push) -->
-  <path d="M 130 405 L 130 435" fill="none" stroke="#64748B" stroke-width="2" marker-end="url(#arrow-gray)"/>
-  <text x="135" y="423" font-size="9" font-weight="600" fill="#475569">git push</text>
+  <!-- Tier 3: PostgreSQL (x=856, y=298, w=210, h=300) -->
+  <rect x="856" y="298" width="210" height="300" rx="6" fill="#FDF2F8" stroke="#DB2777" stroke-width="1.5"/>
+  <rect x="856" y="298" width="210" height="28" rx="6" fill="#DB2777"/>
+  <text x="961" y="316" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">PostgreSQL 16 (Database)</text>
 
-  <!-- Flow 4: GitHub -> EC2 (Git Pull HTTPS) -->
-  <path d="M 220 510 C 260 510, 270 410, 310 410" fill="none" stroke="#059669" stroke-width="2.5" stroke-dasharray="6 3" marker-end="url(#arrow-green)"/>
-  <rect x="226" y="450" width="85" height="20" rx="3" fill="#ECFDF5" stroke="#A7F3D0"/>
-  <text x="268" y="464" font-size="9" font-weight="700" text-anchor="middle" fill="#047857">git pull (HTTPS)</text>
+  <text x="872" y="346" font-size="10" font-weight="700" fill="#9D174D">127.0.0.1:5432</text>
+  <text x="872" y="362" font-size="9" fill="#831843">Localhost only (no public port)</text>
 
+  <!-- Database & User sub-box -->
+  <rect x="872" y="374" width="180" height="52" rx="4" fill="#FCE7F3" stroke="#FBCFE8" stroke-width="1"/>
+  <text x="880" y="392" font-size="9" font-weight="600" fill="#9D174D">Database &amp; User:</text>
+  <text x="880" y="406" font-size="8" fill="#831843">DB: timecapsule</text>
+  <text x="880" y="420" font-size="8" fill="#831843">User: timecapsule</text>
+
+  <!-- Auth & Schema sub-box -->
+  <rect x="872" y="436" width="180" height="66" rx="4" fill="#FCE7F3" stroke="#FBCFE8" stroke-width="1"/>
+  <text x="880" y="454" font-size="9" font-weight="600" fill="#9D174D">Auth &amp; Schema:</text>
+  <text x="880" y="468" font-size="8" fill="#831843">scram-sha-256 (pg_hba.conf)</text>
+  <text x="880" y="482" font-size="8" fill="#831843">users, capsules, uploads</text>
+  <text x="880" y="496" font-size="8" fill="#831843">notifications tables</text>
+
+  <!-- ===== CONNECTORS ===== -->
+
+  <!-- 1. Users → EC2 (HTTP :80) -->
+  <!-- Users right: x=210, midY=130 → EC2 left: x=334, y=350 (Nginx area) -->
+  <path d="M210,130 L272,130 L272,350 L354,350"
+        fill="none" stroke="#2563EB" stroke-width="2.5" marker-end="url(#a-blue)"/>
+  <rect x="238" y="225" width="68" height="18" rx="3" fill="#EFF6FF" stroke="#BFDBFE" stroke-width=".5"/>
+  <text x="272" y="238" font-size="8" font-weight="700" text-anchor="middle" fill="#1D4ED8">HTTP :80</text>
+
+  <!-- 2. Developer → EC2 (SSH :22) -->
+  <!-- Dev right: x=210, midY=265 → EC2 left: x=334, y=400 -->
+  <path d="M210,265 L250,265 L250,400 L354,400"
+        fill="none" stroke="#D97706" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#a-amber)"/>
+  <rect x="216" y="325" width="68" height="18" rx="3" fill="#FEF3C7" stroke="#FDE68A" stroke-width=".5"/>
+  <text x="250" y="338" font-size="8" font-weight="700" text-anchor="middle" fill="#B45309">SSH :22</text>
+
+  <!-- 3. Developer → GitHub (git push) -->
+  <!-- Dev bottom: x=120, y=325 → GitHub top: x=120, y=350 -->
+  <line x1="120" y1="325" x2="120" y2="350" stroke="#64748B" stroke-width="2" marker-end="url(#a-gray)"/>
+  <text x="135" y="340" font-size="8" font-weight="600" fill="#475569">git push</text>
+
+  <!-- 4. GitHub → EC2 (git pull / deploy) -->
+  <!-- GitHub right: x=210, y=420 → EC2 left: x=334, y=470 -->
+  <path d="M210,420 L260,420 L260,470 L354,470"
+        fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#a-green)"/>
+  <rect x="226" y="440" width="68" height="18" rx="3" fill="#ECFDF5" stroke="#A7F3D0" stroke-width=".5"/>
+  <text x="260" y="453" font-size="8" font-weight="700" text-anchor="middle" fill="#047857">git pull</text>
+
+  <!-- ===== LEGEND ===== -->
+  <rect x="296" y="660" width="776" height="20" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="310" y1="672" x2="330" y2="672" stroke="#2563EB" stroke-width="2.5"/>
+  <text x="336" y="674" font-size="8" fill="#334155">HTTP :80</text>
+  <line x1="400" y1="672" x2="420" y2="672" stroke="#D97706" stroke-width="2" stroke-dasharray="4 2"/>
+  <text x="426" y="674" font-size="8" fill="#334155">SSH :22</text>
+  <line x1="478" y1="672" x2="498" y2="672" stroke="#16A34A" stroke-width="2.5"/>
+  <text x="504" y="674" font-size="8" fill="#334155">FastCGI</text>
+  <line x1="560" y1="672" x2="580" y2="672" stroke="#4F46E5" stroke-width="2.5"/>
+  <text x="586" y="674" font-size="8" fill="#334155">PDO (PHP → PG)</text>
+  <line x1="672" y1="672" x2="692" y2="672" stroke="#059669" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="698" y="674" font-size="8" fill="#334155">git pull (Deploy)</text>
+  <line x1="790" y1="672" x2="810" y2="672" stroke="#64748B" stroke-width="2"/>
+  <text x="816" y="674" font-size="8" fill="#334155">git push</text>
+  <rect x="870" y="665" width="14" height="14" rx="2" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="890" y="674" font-size="8" fill="#334155">Security Group</text>
+  <rect x="968" y="665" width="14" height="14" rx="2" fill="none" stroke="#ED7100" stroke-width="2"/>
+  <text x="988" y="674" font-size="8" fill="#334155">EC2 Instance</text>
 </svg>

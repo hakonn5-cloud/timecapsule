@@ -5,3 +5,5 @@
 /storage/sessions/*
 !/storage/sessions/.gitkeep
 /storage/*.log
+.nat_state.env
+.DS_Store
