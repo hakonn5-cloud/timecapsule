@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050" role="img" aria-labelledby="title desc">
+<title id="title">TimeCapsule — архитектура с вложениями в Amazon S3</title>
+<desc id="desc">Браузер обращается к app-server через Internet Gateway. Приложение записывает и удаляет объекты S3 с ролью EC2 и выдаёт подписанный URL. Браузер получает файл напрямую из S3. База данных остаётся в приватной подсети, SSH проходит через bastion.</desc>
+<defs>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563eb"/></marker>
+<marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#16804a"/></marker>
+<marker id="orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#c46b00"/></marker>
+<marker id="purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7652b1"/></marker>
+<marker id="gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#64748b"/></marker>
+</defs><rect width="1600" height="1050" fill="white"/><g font-family="Arial, DejaVu Sans, sans-serif" fill="#172b45">
+<text x="30" y="38" font-size="27" fill="#172b45" font-weight="700">TimeCapsule: вложения в Amazon S3</text>
+<text x="30" y="63" font-size="16" fill="#64748b">ЛР4 · Zui Artiom · IA2403 · Informatică aplicată · фактическая конфигурация после задания 13</text>
+<rect x="285" y="85" width="1290" height="915" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+<text x="310" y="115" font-size="20" fill="#172b45" font-weight="700">AWS Region: eu-central-1 (Frankfurt)</text>
+<rect x="315" y="270" width="810" height="640" rx="12" fill="#fff" stroke="#7652b1" stroke-width="2"/>
+<text x="335" y="303" font-size="19" fill="#7652b1" font-weight="700">VPC timecapsule-dev-vpc · 10.28.0.0/16</text>
+<rect x="345" y="335" width="350" height="235" rx="12" fill="#eff6ff" stroke="#93b8ee" stroke-width="2"/>
+<text x="365" y="360" font-size="15" fill="#172b45" font-weight="700">public-a · 10.28.0.0/24 · eu-central-1a</text>
+<rect x="745" y="335" width="350" height="235" rx="12" fill="#eff6ff" stroke="#93b8ee" stroke-width="2"/>
+<text x="765" y="360" font-size="15" fill="#172b45" font-weight="700">public-b · 10.28.1.0/24 · eu-central-1b</text>
+<rect x="345" y="645" width="350" height="205" rx="12" fill="#f0fdf4" stroke="#86cda1" stroke-width="2"/>
+<text x="365" y="672" font-size="16" fill="#172b45" font-weight="700">private-a · 10.28.10.0/24</text>
+<rect x="745" y="645" width="350" height="205" rx="12" fill="#f0fdf4" stroke="#86cda1" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="765" y="672" font-size="16" fill="#172b45" font-weight="700">private-b · 10.28.11.0/24</text>
+<text x="770" y="720" font-size="16" fill="#172b45">Резервная подсеть · eu-central-1b</text>
+<text x="770" y="751" font-size="15" fill="#172b45">Экземпляров и реплики БД нет</text>
+<text x="770" y="785" font-size="15" fill="#172b45">private-rt: только local-маршрут</text>
+<rect x="370" y="380" width="300" height="170" rx="12" fill="#fff" stroke="#e6a546" stroke-width="2"/>
+<text x="390" y="407" font-size="20" fill="#172b45" font-weight="700">timecapsule-dev-app</text>
+<text x="390" y="435" font-size="16" fill="#172b45">Private IP: 10.28.0.142</text>
+<text x="390" y="459" font-size="16" fill="#172b45">Elastic IP: 18.159.49.8</text>
+<text x="390" y="483" font-size="16" fill="#172b45">Nginx + PHP-FPM + AWS SDK</text>
+<text x="390" y="507" font-size="14" fill="#172b45">web-sg: HTTP 80; SSH от bastion</text>
+<text x="390" y="532" font-size="14" fill="#c46b00" font-weight="700">Вложений на локальном диске нет</text>
+<rect x="770" y="380" width="300" height="170" rx="12" fill="#fff" stroke="#7ca9d2" stroke-width="2"/>
+<text x="790" y="407" font-size="19" fill="#172b45" font-weight="700">timecapsule-dev-bastion</text>
+<text x="790" y="435" font-size="16" fill="#172b45">SSH / ProxyJump</text>
+<text x="790" y="461" font-size="14" fill="#172b45">Публичный IP меняется при запуске</text>
+<text x="790" y="489" font-size="15" fill="#172b45">bastion-sg: SSH 22 с My IP</text>
+<text x="790" y="517" font-size="15" fill="#172b45">SSH к app-server и db-server</text>
+<rect x="365" y="690" width="310" height="140" rx="12" fill="#fff" stroke="#4ca879" stroke-width="2"/>
+<text x="385" y="718" font-size="19" fill="#172b45" font-weight="700">timecapsule-dev-db</text>
+<text x="385" y="744" font-size="15" fill="#172b45">PostgreSQL 16 · 10.28.10.228</text>
+<text x="385" y="771" font-size="16" fill="#172b45">db.timecapsule.internal</text>
+<text x="385" y="796" font-size="14" fill="#172b45">db-sg: 5432 только от web-sg</text>
+<text x="385" y="818" font-size="13" fill="#172b45">Нет публичного IP; SSH от bastion</text>
+<text x="340" y="886" font-size="14" fill="#172b45">public-rt: 0.0.0.0/0 → IGW · private-rt: только local · NAT Gateway отсутствует</text>
+<rect x="535" y="190" width="280" height="48" rx="12" fill="#e8f6ee" stroke="#67a983" stroke-width="2"/>
+<text x="675" y="219" font-size="18" fill="#172b45" font-weight="700" text-anchor="middle">Internet Gateway</text>
+<rect x="25" y="125" width="220" height="95" rx="12" fill="#eff6ff" stroke="#93b8ee" stroke-width="2"/>
+<text x="45" y="157" font-size="17" fill="#172b45" font-weight="700">Браузер пользователя</text>
+<text x="45" y="186" font-size="15" fill="#172b45">Интерфейс и скачивание</text>
+<rect x="25" y="640" width="220" height="100" rx="12" fill="#fff7e8" stroke="#dba657" stroke-width="2"/>
+<text x="45" y="675" font-size="19" fill="#172b45" font-weight="700">Администратор</text>
+<text x="45" y="706" font-size="16" fill="#172b45">SSH через bastion</text>
+<rect x="1190" y="320" width="350" height="340" rx="12" fill="#f0fdf4" stroke="#4ca879" stroke-width="2"/>
+<text x="1210" y="353" font-size="22" fill="#16804a" font-weight="700">Amazon S3 · вне VPC</text>
+<text x="1210" y="383" font-size="16" fill="#172b45" font-weight="700">timecapsule-dev-uploads-hakonn5</text>
+<text x="1210" y="412" font-size="16" fill="#172b45">Ключи вложений: uploads/&lt;имя&gt;</text>
+<text x="1210" y="445" font-size="15" fill="#172b45">Block Public Access · ACL disabled</text>
+<text x="1210" y="473" font-size="15" fill="#172b45">SSE-S3 · Versioning · HTTPS only</text>
+<text x="1210" y="510" font-size="15" fill="#172b45">Старые версии: Standard-IA ≥30 дн.*</text>
+<text x="1210" y="538" font-size="15" fill="#172b45">Удаление: ≥90 дн., сохранить 2</text>
+<text x="1210" y="566" font-size="15" fill="#172b45">Незавершённые multipart: 7 дней</text>
+<text x="1210" y="605" font-size="16" fill="#172b45" font-weight="700">Браузер читает файл напрямую.</text>
+<text x="1210" y="633" font-size="15" fill="#172b45">Приложение не передаёт его байты.</text>
+<rect x="1190" y="735" width="350" height="175" rx="12" fill="#f5f0ff" stroke="#a38bd0" stroke-width="2"/>
+<text x="1210" y="766" font-size="21" fill="#7652b1" font-weight="700">IAM (global) · роль EC2</text>
+<text x="1210" y="797" font-size="17" fill="#172b45" font-weight="700">timecapsule-dev-app-role</text>
+<text x="1210" y="827" font-size="15" fill="#172b45">GetObject / PutObject / DeleteObject</text>
+<text x="1210" y="853" font-size="15" fill="#172b45">Только uploads/* · без ListBucket</text>
+<text x="1210" y="882" font-size="15" fill="#172b45">Временные credentials через IMDS</text>
+<path d="M245 160H480V214H535" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="310" y="151" font-size="15" fill="#2563eb" font-weight="700">HTTP :80</text>
+<path d="M675 238V321H520V380" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="700" y="255" font-size="15" fill="#2563eb">Ответ приложения: 302 на подписанный URL</text>
+<path d="M135 220V245H1365V320" fill="none" stroke="#16804a" stroke-width="2.5" marker-end="url(#green)"/>
+<text x="840" y="231" font-size="16" fill="#16804a" font-weight="700">Браузер → S3: HTTPS GET · подпись на 300 секунд</text>
+<path d="M520 550V690" fill="none" stroke="#16804a" stroke-width="2.5" marker-end="url(#green)"/>
+<text x="355" y="624" font-size="15" fill="#16804a">TCP 5432 · приватная сеть</text>
+<path d="M640 550V595H1165V470H1190" fill="none" stroke="#c46b00" stroke-width="2.5" marker-end="url(#orange)"/>
+<text x="710" y="616" font-size="15" fill="#c46b00" font-weight="700">App → S3: PutObject / DeleteObject · HTTPS</text>
+<path d="M770 460H670" fill="none" stroke="#64748b" stroke-width="2.5" marker-end="url(#gray)" stroke-dasharray="7 5"/>
+<text x="700" y="450" font-size="13" fill="#64748b">SSH</text>
+<path d="M245 690H290V580H1110V460H1070" fill="none" stroke="#64748b" stroke-width="2.5" marker-end="url(#gray)" stroke-dasharray="7 5"/>
+<text x="60" y="769" font-size="14" fill="#64748b">SSH 22: My IP → bastion</text>
+<path d="M1050 550V630H720V754H675" fill="none" stroke="#64748b" stroke-width="2.5" marker-end="url(#gray)" stroke-dasharray="7 5"/>
+<path d="M1190 870H1147V929H705V535H670" fill="none" stroke="#7652b1" stroke-width="2.5" marker-end="url(#purple)" stroke-dasharray="7 5"/>
+<text x="760" y="951" font-size="15" fill="#7652b1">Instance profile: роль привязана к app-server (логическая связь)</text>
+<text x="315" y="980" font-size="14" fill="#172b45">Route 53 private zone: timecapsule.internal → db.timecapsule.internal → 10.28.10.228</text>
+<text x="30" y="1020" font-size="16" fill="#64748b">* Переходы lifecycle зависят от ограничений размера. PHP-сессии остаются локальными; ALB и реплика БД не развёрнуты.</text>
+</g></svg>
