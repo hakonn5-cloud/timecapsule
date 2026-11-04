@@ -1,6 +1,6 @@
 <?php
 // Database connection. The connection settings (DB_HOST, DB_PORT, DB_NAME, DB_USER,
-// DB_PASSWORD) come from .env or the environment.
+// DB_PASSWORD, DB_SSLMODE) come from .env or the environment.
 
 function db(): PDO
 {
@@ -8,10 +8,11 @@ function db(): PDO
 
     if ($pdo === null) {
         $dsn = sprintf(
-            'pgsql:host=%s;port=%s;dbname=%s',
+            'pgsql:host=%s;port=%s;dbname=%s;sslmode=%s',
             config('DB_HOST', 'localhost'),
             config('DB_PORT', '5432'),
-            config('DB_NAME', 'timecapsule')
+            config('DB_NAME', 'timecapsule'),
+            config('DB_SSLMODE', 'prefer')
         );
 
         $pdo = new PDO($dsn, config('DB_USER', 'timecapsule'), config('DB_PASSWORD', 'secret'), [
